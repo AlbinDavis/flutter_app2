@@ -77,7 +77,41 @@ class _RandomWordsState extends State<RandomWords> {
           ],
         ),
       ),
+      bottomNavigationBar
+          : BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex : 0,
+          fixedColor
+              : Colors.green,
+          items
+              : [
 
+            BottomNavigationBarItem(
+              title
+                  : Text("Home"),
+              icon
+                  : Icon(Icons.home), ),
+            BottomNavigationBarItem(
+              title
+                  : Text("Search"),
+              icon
+                  : Icon(Icons.search), ),
+            BottomNavigationBarItem(
+              title
+                  : Text("Profile"),
+              icon
+                  : Icon(Icons.account_circle), ),
+            BottomNavigationBarItem(
+              title:
+              Text("Menu"),
+              icon:
+              Icon(Icons.menu_book_outlined),),
+
+          ],
+          onTap
+              : (int indexOfItem){
+
+          }),
     );
   }
   Widget _buildSuggestions() {
