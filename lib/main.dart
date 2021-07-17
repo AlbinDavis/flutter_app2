@@ -26,15 +26,39 @@ class _RandomWordsState extends State<RandomWords> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.lightBlueAccent,
       appBar: AppBar(
-        title: const Text('Startup Name Generator'),
+        title: Text("GeeksforGeeks"),
+        // leading: Builder(
+        //   builder: (context) => IconButton(
+        //     icon: new Icon(Icons.settings),
+        //     onPressed: () => Scaffold.of(context).openDrawer(),
+        //   ),
+        // ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.comment),
+            tooltip: 'Comment Icon',
+            onPressed: () {},
+          ), //IconButton
+          IconButton(
+            icon: Icon(Icons.settings),
+            tooltip: 'Setting Icon',
+            onPressed: () {},
+          ),
+        ], //<Widget>[]
+        backgroundColor: Colors.greenAccent[400],
+        elevation: 50.0,
+        brightness: Brightness.dark,
       ),
       body: _buildSuggestions(),
-
       floatingActionButton: FloatingActionButton(
-    elevation: 10.0, child: Icon(Icons.add),
-    onPressed: () { _buildSuggestions(); },
-    ),
+        elevation: 10.0,
+        child: Icon(Icons.add),
+        onPressed: () {
+          _buildSuggestions();
+        },
+      ),
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
@@ -51,69 +75,54 @@ class _RandomWordsState extends State<RandomWords> {
               ),
             ),
             ListTile(
-              title
-                  : Text('Item 1'),
-              leading
-                  : Icon(Icons.people),
+              title: Text('Item 1'),
+              leading: Icon(Icons.people),
               onTap: () {
                 // Update the state of the app
                 // ...
                 // Then close the drawer
                 Navigator.pop(context);
-              },),
+              },
+            ),
             ListTile(
-              title
-                  : Text('Item 2'),
-              leading
-                  : Icon(Icons.mail),
+              title: Text('Item 2'),
+              leading: Icon(Icons.mail),
               onTap: () {
                 // Update the state of the app
                 // ...
                 // Then close the drawer
                 Navigator.pop(context);
-              },),
-
-
+              },
+            ),
           ],
         ),
       ),
-      bottomNavigationBar
-          : BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          currentIndex : 0,
-          fixedColor
-              : Colors.green,
-          items
-              : [
-
+          currentIndex: 0,
+          fixedColor: Colors.green,
+          items: [
             BottomNavigationBarItem(
-              title
-                  : Text("Home"),
-              icon
-                  : Icon(Icons.home), ),
+              title: Text("Home"),
+              icon: Icon(Icons.home),
+            ),
             BottomNavigationBarItem(
-              title
-                  : Text("Search"),
-              icon
-                  : Icon(Icons.search), ),
+              title: Text("Search"),
+              icon: Icon(Icons.search),
+            ),
             BottomNavigationBarItem(
-              title
-                  : Text("Profile"),
-              icon
-                  : Icon(Icons.account_circle), ),
+              title: Text("Profile"),
+              icon: Icon(Icons.account_circle),
+            ),
             BottomNavigationBarItem(
-              title:
-              Text("Menu"),
-              icon:
-              Icon(Icons.menu_book_outlined),),
-
+              title: Text("Menu"),
+              icon: Icon(Icons.menu_book_outlined),
+            ),
           ],
-          onTap
-              : (int indexOfItem){
-
-          }),
+          onTap: (int indexOfItem) {}),
     );
   }
+
   Widget _buildSuggestions() {
     return ListView.builder(
         padding: const EdgeInsets.all(16.0),
@@ -127,7 +136,6 @@ class _RandomWordsState extends State<RandomWords> {
         });
   }
 
-
   Widget _buildRow(WordPair pair) {
     return ListTile(
       title: Text(
@@ -137,4 +145,3 @@ class _RandomWordsState extends State<RandomWords> {
     );
   }
 }
-
